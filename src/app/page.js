@@ -1,113 +1,151 @@
+'use client'
+import { Carousel } from "@mantine/carousel";
+import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import Image from "next/image";
+import '@mantine/carousel/styles.css';
+import { Card } from "@mantine/core";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
+    <main className="relative px-20">
+      <Carousel
+      nextControlIcon={<div className="bg-orange-500 text-white p-3 rounded-full absolute"><FaArrowRight /></div>}
+      previousControlIcon={<div className="bg-orange-500 text-white p-3 rounded-full absolute"><FaArrowLeft /></div>}>
+        <Carousel.Slide>
+          <div className="bg-red-100" style={{ width: '100%', height: '600px', position: 'relative' }}>
             <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
+              src='https://d1be5sn7lppxuh.cloudfront.net/assets/files/thumb/images/carousels/cover_w1440_h820_dsc00249-edited-1.jpg'
+              fill
+              style={{ objectFit: 'cover' }}
+              alt="priority"
             />
-          </a>
+            <div className="bg-gray-900/50 flex flex-col justify-center items-center gap-8 px-40 absolute inset-0">
+              <h1 className="text-orange-500 text-5xl font-bold drop-shadow-lg">Welcome to Japfa Comfeed Indonesia</h1>
+              <p className="text-white text-center text-xl drop-shadow-lg px-12">We are one of Indonesia's largest agri-food Companies with the mission to be the leading dependable provider of affordable protein foods in Indonesia.</p>
+              <button className="bg-orange-500 text-white px-6 py-3 rounded-full">More About Us</button>
+            </div>
+          </div>
+        </Carousel.Slide>
+        <Carousel.Slide>
+          <div className="bg-red-100" style={{ width: '100%', height: '600px', position: 'relative' }}>
+            <Image
+              src='https://d1be5sn7lppxuh.cloudfront.net/assets/files/thumb/images/vision/cover_w1440_h450_1440-visi-misi.jpg'
+              fill
+              style={{ objectFit: 'cover' }}
+              alt="priority"
+            />
+            <div className="bg-gray-900/50 flex flex-col justify-center items-center gap-8 px-40 absolute inset-0">
+              <h1 className="text-orange-500 text-5xl font-bold drop-shadow-lg">Our Vision and Mission</h1>
+              <p className="text-white text-center text-xl drop-shadow-lg px-12">To be the leading dependable provider of affordable protein foods in Indonesia by building on the foundation of our excellent teamwork and proven experience for the benefit of all stakeholders.</p>
+            </div>
+          </div>
+        </Carousel.Slide>
+        <Carousel.Slide>
+          <div className="bg-red-100" style={{ width: '100%', height: '600px', position: 'relative' }}>
+            <Image
+              src='https://d1be5sn7lppxuh.cloudfront.net/assets/files/thumb/images/carousels/cover_w1440_h820_1440-shrimp-pond-bomo.jpg'
+              fill
+              style={{ objectFit: 'cover' }}
+              alt="priority"
+            />
+          </div>
+        </Carousel.Slide>
+        <Carousel.Slide>
+          <div className="bg-red-100" style={{ width: '100%', height: '600px', position: 'relative' }}>
+            <Image
+              src='https://d1be5sn7lppxuh.cloudfront.net/assets/files/thumb/images/carousels/cover_w1440_h820_homepage_banner_beef_1440.jpg'
+              fill
+              style={{ objectFit: 'cover' }}
+              alt="priority"
+            />
+          </div>
+        </Carousel.Slide>
+        <Carousel.Slide>
+          <div className="bg-red-100" style={{ width: '100%', height: '600px', position: 'relative' }}>
+            <Image
+              src='https://d1be5sn7lppxuh.cloudfront.net/assets/files/thumb/images/carousels/cover_w1440_h820_main_banner_consumer_1440.jpg'
+              fill
+              style={{ objectFit: 'cover' }}
+              alt="priority"
+            />
+          </div>
+        </Carousel.Slide>
+      </Carousel>
+      <section className="flex flex-col">
+        <div className="flex justify-between gap-8 px-4 py-8">
+          <div className="flex flex-col gap-4">
+            <h1 className="text-3xl font-bold">Company Overview</h1>
+            <p className="text-xl font-bold">PT Japfa Comfeed Indonesia, Tbk is one of Indonesia's largest agri-food Companies that has been producing vital animal protein staples for the nation since 1975.</p>
+            <p>We founded this company in 1971 under the name PT Java Palletizing Factory, Ltd (PT Japfa), with focus on the commercial marketing of pellet main products.
+              However, we started our livestock feed business in 1975 and chicken breeding operation in 1982.
+            </p>
+            <button className="bg-orange-500 text-white px-6 py-3 rounded-full" style={{ width: '20%' }}>Read More</button>
+          </div>
+          <div style={{ width: '100%', height: '400px', position: 'relative' }}>
+            <Image
+              src='https://annualreport.id/assets/4JAPFA-1509695140.jpg'
+              fill
+              style={{ objectFit: 'cover' }}
+              alt="priority"
+            />
+          </div>
         </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+        <div>
+          <h1>Our Team</h1>
+        </div>
+        <div>
+          <h1>Our Values</h1>
+        </div>
+      </section>
+      <section>
+        <h1>Our Products</h1>
+        <div className="flex">
+          <Card>
+            <Card.Section withBorder>
+              <Image
+                src="https://poultry.extension.org/wp-content/uploads/2019/02/shutterstock_531404539-1024x684.jpg"
+                width={300}
+                height={150}
+                alt="Poultry"
+              />
+            </Card.Section>
+            <h3>Poultry</h3>
+            <p>The struggle that we started since 1975 has led us to become the leading Total Poultry Solutions Provider in Indonesia.</p>
+            <button className="bg-orange-500 text-white px-6 py-3 rounded-full" style={{ width: '20%' }}>Read More</button>
+          </Card>
+          <Card>
+            <Card.Section withBorder>
+              <Image
+                src="https://www.cameronsseafood.com/wp-content/uploads/2020/01/caliseafood.jpg"
+                width={300}
+                height={150}
+                alt="Seafood"
+              />
+            </Card.Section>
+            <h3>Seafood</h3>
+            <p>Established since 1987, STP focused on aqua feed mills, shrimp & fish hatchery and grow-out farming and seafood processing for local and global market.</p>
+            <button className="bg-orange-500 text-white px-6 py-3 rounded-full" style={{ width: '20%' }}>Read More</button>
+          </Card>
+          <Card>
+            <Card.Section withBorder>
+              <Image
+                src="https://www.mychicagosteak.com/steak-university/wp-content/uploads/2019/05/raw-steak-compressor.jpg"
+                width={300}
+                height={150}
+                alt="Beef"
+              />
+            </Card.Section>
+            <h3>Beef</h3>
+            <p>JAPFA runs an integrated cattle breeding business under its subsidiary, PT Santosa Agrindo (Santori).</p>
+            <button className="bg-orange-500 text-white px-6 py-3 rounded-full" style={{ width: '20%' }}>Read More</button>
+          </Card>
+          <div>Beef</div>
+          <div>Consumer Goods</div>
+        </div>
+      </section>
+      <section>
+        <h1>Testimonials</h1>
+      </section>
     </main>
   );
 }

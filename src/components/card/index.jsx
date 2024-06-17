@@ -3,18 +3,17 @@ import Image from "next/image";
 
 export default function ProductCard(information){
     return (
-        <Card withBorder>
+        <Card className="flex gap-2" padding="lg" withBorder>
             <CardSection>
                 <Image
-                    src="https://poultry.extension.org/wp-content/uploads/2019/02/shutterstock_531404539-1024x684.jpg"
-                    width={500}
-                    height={300}
+                    src={information.imageUrl}
+                    width={600}
+                    height={200}
                     alt="product"
                 />
             </CardSection>
-            <h1>Poultry</h1>
-            <p>Our main product, as JAPFA is the leading Total Poultry Solutions Provider in Indonesia</p>
-            <button className="bg-orange-500 text-white px-6 py-3 rounded-full">R</button>
+            <h1 className="text-xl font-bold">{information.productName}</h1>
+            <p className="h-44">{information.description}</p>
         </Card>
     )
 }

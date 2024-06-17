@@ -6,7 +6,9 @@ const nextConfig = {
             'annualreport.id',
             'poultry.extension.org',
             'www.cameronsseafood.com',
-            'www.mychicagosteak.com'
+            'www.mychicagosteak.com',
+            'img.sndimg.com',
+            'randomuser.me'
         ]
     }
 };

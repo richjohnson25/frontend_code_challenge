@@ -5,12 +5,12 @@ import { useEffect, useState } from "react"
 
 export default function TeamsPage(){
     // Fetching data user dari randomuser.me
-    const companyPositions = ['President Commissioner', 'Commissioner', 'President Director', 'Vice President Director', 'Director', 'Financial Director', 'Corporate Affairs Director', 'Corporate Secretary']
+    const companyPositions = ['President Commissioner', 'Commissioner', 'President Director', 'Vice President Director', 'Director', 'Financial Director', 'Corporate Affairs Director', 'Corporate Secretary', 'Head of Internal Audit']
     const [teamMembers, setTeamMembers] = useState([]);
 
     async function fetchTeamMembers(){
         try {
-            const response = await axios.get('https://randomuser.me/api/?results=8')
+            const response = await axios.get('https://randomuser.me/api/?results=9')
             setTeamMembers(response.data.results)
         } catch (error){
             console.log(error)

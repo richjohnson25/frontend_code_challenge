@@ -2,8 +2,29 @@
 
 import { Timeline } from "@mantine/core";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function AboutUsPage(){
+    // Fetching data user dari randomuser.me
+    const companyPositions = ['President Commissioner', 'Commissioner', 'President Director']
+    const [teamMembers, setTeamMembers] = useState([]);
+
+    async function fetchTeamMembers(){
+        try {
+            const response = await axios.get('https://randomuser.me/api/?results=3')
+            setTeamMembers(response.data.results)
+        } catch (error){
+            console.log(error)
+        }
+    }
+
+    useEffect(() => {
+        fetchTeamMembers()
+    }, [])
+
+    if(teamMembers === null) return <div>Loading...</div>
+
     return (
         <>
             <div name="AboutUs">
@@ -83,33 +104,152 @@ export default function AboutUsPage(){
                 </section>
                 <section className="flex flex-col bg-white items-center py-8">
                     <h1 className="text-orange-500 text-3xl font-bold pb-8">Meet Our Team</h1>
-                </section>
-                <section className="flex flex-col bg-white items-center py-8">
-                    <h1 className="text-orange-500 text-3xl font-bold pb-8">Our Culture</h1>
-                    <div style={{ position: 'relative' }}>
-                        <Image
-                            src='https://d1be5sn7lppxuh.cloudfront.net/assets/files/thumb/images/vision/cover_w960_h340_img_center_visi-misi.jpg'
-                            width={1000}
-                            height={500}
-                            alt="Values"
-                        />
-                        <div className="bg-gray-900/50 flex flex-col justify-center items-center gap-8 px-40 absolute inset-0">
-                            <h1 className="text-orange-500 text-3xl font-bold drop-shadow-lg">Values</h1>
-                            <h3 className="text-white text-xl font-bold drop-shadow-lg">Growing Towards Mutual Prosperity</h3>
-                        </div>
+                    {/*Render anggota tim berdasarkan posisi jabatan di perusahaan*/}
+                    <div className="w-full flex flex-row justify-center items-center gap-8">
+                        {
+                            teamMembers.map((item, index) => {
+                                return (
+                                    <div key={index} className="flex flex-col items-center gap-2">
+                                        <Image
+                                            src={item.picture.large}
+                                            width={150}
+                                            height={150}
+                                            alt="Team Member"
+                                        />
+                                        <h1 className="text-2xl font-bold">{companyPositions[index]}</h1>
+                                        <h2 className="text-xl">{item.name.first} {item.name.last}</h2>
+                                    </div>
+                                )
+                            })
+                        }
                     </div>
-                    <div>
-                        <p>Central to the success of PT Japfa Comfeed Indonesia Tbk (Company) is a strong belief in the nurturing of mutually rewarding relationships based on trust and integrity. 
-                            With all its stakeholders, the Company takes the pro-active stance of developing "win-win" relationships. Our tagline is "Growing Towards Mutual Prosperity".
-                        </p>
-                        <ul className="list-disc">
-                            <li>With shareholders, the Company's goal is to achieve consistently superior investment returns.</li>
-                            <li>With business partners, the Company works in close co-operation, reinforcing each other's core competencies.</li>
-                            <li>With customers, the Company focuses on delivering superior products and services at competitive prices. It aims to exceed customers' expectations.</li>
-                            <li>With suppliers, it offers fair and ethical business deals.</li>
-                            <li>With employees, it places major emphasis on identifying and developing programs that bring out the best in everyone.</li>
-                            <li>With the community, the Company pledges to remain a responsible corporate citizen.</li>
-                        </ul>
+                </section>
+                <section className="flex flex-col bg-white items-center gap-4 py-4">
+                    <h1 className="text-orange-500 text-3xl font-bold">Our Culture</h1>
+                    <div className="text-lg">
+                        <p>Central to the success of PT Japfa Comfeed Indonesia Tbk (Company) is a strong belief in the nurturing of mutually rewarding relationships based on trust and integrity. </p>
+                    </div>
+                    <div className="w-[1000px] flex flex-col px-8 py-4 border-4 border-orange-500 gap-4 bg-orange-200">
+                        <h4 className="text-sm font-bold">Our Vision and Mission</h4>
+                        <p className="text-lg">To be the leading dependable provider of affordable protein foods in Indonesia by building on the foundation of our excellent teamwork and proven experience for the benefit of all stakeholders.</p>
+                    </div>
+                    <div className="grid grid-cols-2 gap-8">
+                        <div className="flex flex-col gap-4">
+                            <div className="flex items-center gap-4">
+                                <Image
+                                    src='https://d1be5sn7lppxuh.cloudfront.net/assets/files/images/ico-values-1.svg'
+                                    width={60}
+                                    height={60}
+                                    alt="values"
+                                />
+                                <h3 className="text-xl font-bold">Leading</h3>    
+                            </div>
+                            <ul className="list-disc">
+                                <li>Top of mind</li>
+                                <li>Reference point by Industry</li>
+                                <li>A continuing process</li>
+                                <li>Ahead of competition</li>
+                            </ul>
+                        </div>
+                        <div className="flex flex-col w-[500px] gap-4">
+                            <div className="flex items-center gap-4">
+                                <Image
+                                    src='https://d1be5sn7lppxuh.cloudfront.net/assets/files/images/ico-values-2.svg'
+                                    width={60}
+                                    height={60}
+                                    alt="values"
+                                />
+                                <h3 className="text-xl font-bold">Dependable</h3>    
+                            </div>
+                            <ul className="list-disc">
+                                <li>Dependable to all partners, farmers, consumers & staff</li>
+                                <li>Consistent, traceable, good quality, safe, disease free products</li>
+                                <li>Responsible to the community & environment</li>
+                            </ul>
+                        </div>
+                        <div className="flex flex-col gap-4">
+                            <div className="flex items-center gap-4">
+                                <Image
+                                    src='https://d1be5sn7lppxuh.cloudfront.net/assets/files/images/vision/group-611.svg'
+                                    width={60}
+                                    height={60}
+                                    alt="values"
+                                />
+                                <h3 className="text-xl font-bold">Affordable</h3>    
+                            </div>
+                            <ul className="list-disc">
+                                <li>Cater mainly to the masses</li>
+                                <li>Not the cheapest, but good value</li>
+                                <li>Role of alleviaton of food shortages</li>
+                                <li>Ahead of competition</li>
+                            </ul>
+                        </div>
+                        <div className="flex flex-col w-[500px] gap-4">
+                            <div className="flex items-center gap-4">
+                                <Image
+                                    src='https://d1be5sn7lppxuh.cloudfront.net/assets/files/images/vision/group-617.svg'
+                                    width={60}
+                                    height={60}
+                                    alt="values"
+                                />
+                                <h3 className="text-xl font-bold">Protein Foods</h3>    
+                            </div>
+                            <ul className="list-disc">
+                                <li>Emphasis on poultry, livestock & marine proteins</li>
+                                <li>Including key upstream operations of feed, livestock breeding & raising, vaccines etc.</li>
+                                <li>Food grade, for human consumption</li>
+                            </ul>
+                        </div>
+                        <div className="flex flex-col w-[500px] gap-4">
+                            <div className="flex items-center gap-4">
+                                <Image
+                                    src='https://d1be5sn7lppxuh.cloudfront.net/assets/files/images/vision/group-613.svg'
+                                    width={60}
+                                    height={60}
+                                    alt="values"
+                                />
+                                <h3 className="text-xl font-bold">Excellent Teamwork</h3>    
+                            </div>
+                            <ul className="list-disc">
+                                <li>Co-operate & support each other even without being asked</li>
+                                <li>Seamless coordination</li>
+                                <li>Operate as 1 unit</li>
+                                <li>Differences in opinions encouraged but move as a team</li>
+                            </ul>
+                        </div>
+                        <div className="flex flex-col gap-4">
+                            <div className="flex items-center gap-4">
+                                <Image
+                                    src='https://d1be5sn7lppxuh.cloudfront.net/assets/files/images/vision/group-614.svg'
+                                    width={60}
+                                    height={60}
+                                    alt="values"
+                                />
+                                <h3 className="text-xl font-bold">Proven Experience</h3>    
+                            </div>
+                            <ul className="list-disc">
+                                <li>Experienced in farming and emerging economies</li>
+                            </ul>
+                        </div>
+                        <div className="flex flex-col w-[500px] gap-4">
+                            <div className="flex items-center gap-4">
+                                <Image
+                                    src='https://d1be5sn7lppxuh.cloudfront.net/assets/files/images/icon-stakeholder-group-615.svg'
+                                    width={60}
+                                    height={60}
+                                    alt="values"
+                                />
+                                <h3 className="text-xl font-bold">Steakholders</h3>    
+                            </div>
+                            <ul className="list-disc">
+                                <li>Staff</li>
+                                <li>Customers</li>
+                                <li>Suppliers</li>
+                                <li>Contract Farmers</li>
+                                <li>Shareholders</li>
+                                <li>Community</li>
+                            </ul>
+                        </div>
                     </div>
                 </section>
             </div>

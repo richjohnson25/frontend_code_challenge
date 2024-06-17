@@ -15,7 +15,7 @@ export default function Home() {
 
   async function fetchTeamMembers(){
     try {
-      const response = await axios.get(`https://randomuser.me/api/?results=8`)
+      const response = await axios.get(`https://randomuser.me/api/?results=3`)
       setTeamMembers(response.data.results)
     } catch (error){
       console.log(error)
@@ -57,7 +57,7 @@ export default function Home() {
       </section>
       <section className="flex flex-col items-center mx-12 gap-4 py-4">
         <h1 className="text-3xl font-bold">Meet Our Teams</h1>
-        <p className="text-lg">JAPFA has a lot of teams in different subsidiaries. These are the most important people in the company as they are part of the Board of Commissioners and Board of Directors</p>
+        <p className="text-lg">JAPFA has a lot of teams operating in different divisions and subsidiaries of the company, with each division being in charge of the head of said division. Below are some of the most important people in the company.</p>
         <div className="flex gap-4">
           {
             teamMembers.map((item, index) => {

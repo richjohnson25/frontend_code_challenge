@@ -32,7 +32,7 @@ export default function Home() {
       <section className="flex flex-col items-center mx-12 gap-4 py-4">
         <h1 className="text-3xl font-bold">Company Overview</h1>
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:px-20">
-          <div>
+          <div className="w-full">
             <Image
               src='https://annualreport.id/assets/4JAPFA-1509695140.jpg'
               width={1000}
@@ -57,7 +57,7 @@ export default function Home() {
       </section>
       <section className="flex flex-col items-center mx-12 gap-4 py-4">
         <h1 className="text-3xl font-bold">Meet Our Teams</h1>
-        <p className="text-lg">JAPFA has a lot of teams operating in different divisions and subsidiaries of the company, with each division being in charge of the head of said division. Below are some of the most important people in the company.</p>
+        <p className="text-center">JAPFA has a lot of teams operating in different divisions and subsidiaries of the company, with each division being in charge of the head of said division. Below are some of the most important people in the company.</p>
         <div className="flex gap-4">
           {
             teamMembers.map((item, index) => {
@@ -80,8 +80,8 @@ export default function Home() {
       {/*Bagian produk di halaman ini menggunakan refactoring pada komponen ProductCard*/}
       <section className="flex flex-col items-center mx-12 gap-4 py-4">
         <h1 className="text-3xl font-bold">Our Products</h1>
-        <p className="text-lg">The company offers various types of products and services that are integrated from upstream to downstream.</p>
-        <div className="grid grid-cols-2 xl:grid-cols-4 gap-4 px-20">
+        <p className="ttext-center">The company offers various types of products and services that are integrated from upstream to downstream.</p>
+        <div className="flex flex-col md:grid md:grid-cols-2 xl:grid-cols-4 gap-4">
           <ProductCard imageUrl='https://poultry.extension.org/wp-content/uploads/2019/02/shutterstock_531404539-1024x684.jpg'
           productName='Poultry'
           description='The struggle that we started since 1975 has led us to become the leading Total Poultry Solutions Provider in Indonesia.' />

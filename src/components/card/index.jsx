@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function ProductCard(information){
     return (
-        <Card className="flex gap-2" padding="lg" withBorder>
+        <Card className="flex gap-2" withBorder>
             <CardSection>
                 <Image
                     src={information.imageUrl}

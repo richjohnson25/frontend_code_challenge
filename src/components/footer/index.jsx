@@ -8,7 +8,7 @@ import Link from "next/link";
 export default function Footer(){
     return (
         <div className="flex flex-col justify-center items-center p-8 gap-8 bg-gray-950">
-            <section className="flex flex-row gap-8">
+            <section className="flex flex-col md:flex-row gap-8">
                 <div className="flex flex-col text-gray-500 gap-4">
                     <h1 className="text-xl font-bold text-orange-500">CONTACT US</h1>
                     <h3 className="text-lg font-bold text-orange-500">Head Office</h3>

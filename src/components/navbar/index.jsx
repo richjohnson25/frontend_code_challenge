@@ -47,7 +47,7 @@ export default function Navbar(){
                         </Link>
                     </div>
                 </Drawer>
-                <button onClick={open}><HamburgerMenu /></button>
+                <button name="mobileMenu" onClick={open}><HamburgerMenu /></button>
             </div>
             <div className="hidden lg:flex lg:basis-1/3 justify-end items-center gap-4 pr-8">
                 <FaSearch />

@@ -31,20 +31,7 @@ export default function Home() {
       <MainCarousel />
       <section className="flex flex-col items-center mx-12 gap-4 py-4">
         <h1 className="text-3xl font-bold">Company Overview</h1>
-        <div className="grid grid-cols-2 gap-8 px-20">
-          <div className="flex flex-col gap-8">
-            <div className="flex flex-col">
-              <h1 className="text-2xl font-bold">About Us</h1>
-              <p>PT Japfa Comfeed Indonesia, Tbk is one of Indonesia's largest agri-food Companies that produces various animal protein staples.
-              We create value for our industry partners through an integrated production chain that includes animal feed manufacturing, poultry breeding, commercial production of broilers, 
-              fish, shrimp and beef as well as value added food processing.</p>
-            </div>
-            <div className="flex flex-col">
-              <h1 className="text-2xl font-bold">History</h1>
-              <p>We founded this company in 1971 under the name PT Java Palletizing Factory, Ltd (PT Japfa), with focus on the commercial marketing of pellet main products.
-              However, we started our livestock feed business in 1975 and chicken breeding operation in 1982.</p>
-            </div>
-          </div>
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:px-20">
           <div>
             <Image
               src='https://annualreport.id/assets/4JAPFA-1509695140.jpg'
@@ -52,6 +39,19 @@ export default function Home() {
               height={300}
               alt="overview"
             />
+          </div>
+          <div className="flex flex-col gap-8">
+            <div className="flex flex-col">
+              <h1 className="text-2xl text-center font-bold">About Us</h1>
+              <p className="text-justify">PT Japfa Comfeed Indonesia, Tbk is one of Indonesia's largest agri-food Companies that produces various animal protein staples.
+              We create value for our industry partners through an integrated production chain that includes animal feed manufacturing, poultry breeding, commercial production of broilers, 
+              fish, shrimp and beef as well as value added food processing.</p>
+            </div>
+            <div className="flex flex-col">
+              <h1 className="text-2xl text-center font-bold">History</h1>
+              <p className="text-justify">We founded this company in 1971 under the name PT Java Palletizing Factory, Ltd (PT Japfa), with focus on the commercial marketing of pellet main products.
+              However, we started our livestock feed business in 1975 and chicken breeding operation in 1982.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -81,7 +81,7 @@ export default function Home() {
       <section className="flex flex-col items-center mx-12 gap-4 py-4">
         <h1 className="text-3xl font-bold">Our Products</h1>
         <p className="text-lg">The company offers various types of products and services that are integrated from upstream to downstream.</p>
-        <div className="grid grid-cols-4 gap-4 px-20">
+        <div className="grid grid-cols-2 xl:grid-cols-4 gap-4 px-20">
           <ProductCard imageUrl='https://poultry.extension.org/wp-content/uploads/2019/02/shutterstock_531404539-1024x684.jpg'
           productName='Poultry'
           description='The struggle that we started since 1975 has led us to become the leading Total Poultry Solutions Provider in Indonesia.' />
